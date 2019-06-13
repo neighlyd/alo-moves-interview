@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+// Components
+import HomePage from './components/HomePage';
 import LoadingPage from './components/LoadingPage';
 
 let hasRendered = false;
 
 const renderApp = () => {
-    if (!hasRendered) {
-        ReactDOM.render(<App />, document.getElementById('root'));
-        hasRendered = true;
-    }
+  if (!hasRendered) {
+    ReactDOM.render(<HomePage />, document.getElementById('root'));
+    hasRendered = true;
+  }
 }
 
-ReactDOM.render(<LoadingPage />, document.getElementById('root'));
+// Will be used when loading data from server.
+// ReactDOM.render(<LoadingPage />, document.getElementById('root'));
+
+ReactDOM.render(<HomePage />, document.getElementById('root'));
+
