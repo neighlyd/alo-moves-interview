@@ -1,0 +1,38 @@
+.edit-comment {
+  display: grid;
+  grid-template-areas:
+  "edit_input edit_input"
+  "edit_btn edit_btn"
+  ;
+
+  .edit-comment__btn {
+    grid-area: edit_btn;
+    max-width: 75px;
+    justify-self: end;
+    align-self: end;
+    margin: .2em 0;
+  }
+
+  .edit-comment__input {
+    grid-area: edit_input;
+  }
+
+  .edit-comment__label {
+    display: none;
+    grid-area: edit_label;
+  }
+
+
+  @media screen and (min-width: $desktop-break){
+    grid-template-columns: 300px 75px;
+    grid-gap: 1em;
+    grid-template-areas: 
+    "edit_input edit_btn"
+    ;
+
+    .edit-comment__btn {
+      justify-self: start;
+    }
+
+  }
+}

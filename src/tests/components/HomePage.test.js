@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import HomePage from '../../components/HomePage';
 
-it('renders without crashing', () => {
+it('HomePage should render correctly', () => {
   const wrapper = shallow(<HomePage />);
   expect(wrapper).toMatchSnapshot();
 });

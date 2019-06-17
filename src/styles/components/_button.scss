@@ -1,0 +1,22 @@
+button {
+  background: black;
+  border: none;
+  color: white;
+  margin: .2em;
+  padding: .4em;
+  font-size: .8em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background: $dark-grey;
+    transition: background .1s ease-in-out;
+  }
+  &:disabled {
+      background: grey;
+      cursor: mousehand;
+  }
+  @media screen and (min-width: $desktop-break){
+    padding: .6em;
+  }
+}

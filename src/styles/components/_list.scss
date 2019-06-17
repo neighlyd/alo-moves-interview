@@ -1,0 +1,49 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+      padding-bottom: .6em;
+      border-style: solid;
+      border-width: 0px 0px 1px 0px;
+      border-color: $light-grey;
+      margin-bottom: .4em;
+      
+      .no-comment {
+        text-align: center;
+      }
+
+      .comment {
+        display: grid;
+        grid-gap: .3em;
+        grid-template-areas: 
+        "comment"
+        "buttons"
+        ;
+        .comment__text {
+          grid-area: comment;
+          word-break: break-all;
+        }
+        .comment__buttons {
+          grid-area: buttons;
+          justify-self: end;
+          button {
+            max-width: 75px;
+          }
+        }
+        @media screen and (min-width: $desktop-break){
+          grid-template-areas:
+          "comment buttons"
+          ;
+          .comment__text {
+            padding-right: 1em;
+          }
+        }
+      }
+  }
+}
+
+.comment-header {
+  text-align: center;
+  margin-bottom: .1em; 
+}

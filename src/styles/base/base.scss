@@ -1,0 +1,24 @@
+body, html {
+  height: 100%;
+  margin: 0 auto;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $s-size;
+}
+
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1.3em;
+}
+
+
+section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em; 
+}
+

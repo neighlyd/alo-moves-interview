@@ -1,11 +1,12 @@
 import React from 'react';
-import NavBar from './NavBar';
+import CommentList from './CommentList';
 
 function App() {
   return (
     <div>
-      <NavBar/>
-      App Rendering
+      <main className="container">
+        <CommentList />
+      </main>
     </div>
   );
 }

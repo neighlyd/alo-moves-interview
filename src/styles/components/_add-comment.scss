@@ -1,0 +1,35 @@
+.add-comment__form {
+  display: grid;
+  grid-template-areas: 
+  "add_input"
+  "add_btn"
+  ;
+  padding-top: .2em;
+
+  button {
+    margin: .2em 0;
+  }
+
+  .add-comment__input {
+    grid-area: add_input;
+  }
+
+  .add-comment__btn {
+    grid-area: add_btn;
+  }
+
+  @media screen and (min-width: $desktop-break){
+    grid-template-columns: 2fr 250px;
+    grid-template-areas: 
+    "add_input add_btn"
+    ;
+
+    button {
+      margin: .2em 0 .2em .2em;
+    }
+
+    .text-input {
+      margin: .2em 1em .2em 0;
+    }
+  }
+}
