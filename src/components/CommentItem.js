@@ -46,7 +46,7 @@ export const CommentItem = (props) => {
   return(
     <li>
       <div className='comment'>
-        <Linkify options={linkifyOpts} className='comment__text'>{props.text}</Linkify>
+        <Linkify tagName='p' options={linkifyOpts} className='comment__text'>{props.text}</Linkify>
         <div className='comment__buttons'>
           <button onClick={editComment}>Edit</button>
           <button onClick={deleteComment}>Delete</button>

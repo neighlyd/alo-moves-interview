@@ -1,10 +1,13 @@
-.confirm_btn{
+.delete__confirm_btn{
   background: darken(red, 15);
   width: 75px;
   float: left;
+  &:hover {
+    background: red;
+  }
 }
 
-.deny_btn {
+.delete__deny_btn {
   width: 75px;
   float: right;
 }
