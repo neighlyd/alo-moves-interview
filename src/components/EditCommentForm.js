@@ -30,8 +30,8 @@ const CommentForm = (props) => {
           >
             Comment
           </label>
-          <textarea 
-            rows='4'
+          <input 
+            type='text'
             className='edit-comment__input text-input'
             autoFocus
             value={comment}
