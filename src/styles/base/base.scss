@@ -22,3 +22,12 @@ section {
   padding: 2em; 
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid;
+  cursor: pointer;
+  &:hover {
+    border-bottom: 2px solid;
+  }
+}
