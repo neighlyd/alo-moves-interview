@@ -4,7 +4,7 @@ import CommentList from './CommentList';
 function App() {
   return (
     <div>
-      <main className="container">
+      <main className='container'>
         <CommentList />
       </main>
     </div>

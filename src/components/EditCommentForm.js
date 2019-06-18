@@ -17,7 +17,7 @@ const CommentForm = (props) => {
   return (
     <Modal
       isOpen={!!props.modalOpen}
-      className="modal"
+      className='modal'
       closeTimeoutMS={200}
       contentLabel={props.formTitle}
       onRequestClose={props.handleModalClose}
