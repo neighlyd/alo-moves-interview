@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import * as linkify from 'linkifyjs';
 import hashtag from 'linkifyjs/plugins/hashtag';
 import Linkify from 'linkifyjs/react';
 
 import EditCommentForm from './EditCommentForm';
 import DeleteComment from './DeleteComment';
-import { startDeleteComment, startEditComment } from '../redux/actions/comments';
 import linkifyOpts from '../linkifyOpts';
-
 
 export const CommentItem = (props) => {
   
@@ -19,12 +16,16 @@ export const CommentItem = (props) => {
   
   const handleEditModalClose = () => setEditModalOpen(false);
   
-  const handleEditComment = (comment) => {
-    props.startEditComment(props.id, comment);
+  const handleEditComment = (text) => {
+    const comment = {
+      text,
+      updatedAt: new Date()
+    };
+    props.db.doc(props.id).set(comment);
     handleEditModalClose();
   }
   
-  const editComment = () => {
+  const openEditCommentModal = () => {
     setEditModalOpen(true);
   }
   
@@ -33,11 +34,11 @@ export const CommentItem = (props) => {
   const handleDeleteModalClose = () => setDeleteModalOpen(false);
   
   const handleDeleteComment = () => {
-    props.startDeleteComment(props.id);
+    props.db.doc(props.id).delete();
     handleDeleteModalClose();
   }
   
-  const deleteComment = () => {
+  const openDeleteCommentModal = () => {
     setDeleteModalOpen(true);
   }
   
@@ -48,8 +49,8 @@ export const CommentItem = (props) => {
       <div className='comment'>
         <Linkify tagName='p' options={linkifyOpts} className='comment__text'>{props.text}</Linkify>
         <div className='comment__buttons'>
-          <button onClick={editComment}>Edit</button>
-          <button onClick={deleteComment}>Delete</button>
+          <button onClick={openEditCommentModal}>Edit</button>
+          <button onClick={openDeleteCommentModal}>Delete</button>
         </div>
       </div>
       <EditCommentForm
@@ -68,9 +69,4 @@ export const CommentItem = (props) => {
   )
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  startEditComment: (id, comment) => dispatch(startEditComment(id, comment)),
-  startDeleteComment: (id) => dispatch(startDeleteComment(id))
-})
-
-export default connect(null, mapDispatchToProps)(CommentItem);
+export default CommentItem;

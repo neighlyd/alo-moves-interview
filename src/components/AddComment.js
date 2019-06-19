@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-
-import { startAddComment } from '../redux/actions/comments';
 
 export const AddComment = (props) => {
-  const [ comment, setComment ] = useState('')
+  const [ text, setText ] = useState('')
 
-  const handleSubmit = (e) => {
+  const addComment = e => {
     e.preventDefault();
-    props.startAddComment(comment);
-    setComment('')
+    props.handleAddComment(text);
+    setText('');
   }
-
+  
   return(
-    <form onSubmit={handleSubmit} className='add-comment__form'>
+    <form onSubmit={addComment} className='add-comment__form'>
       <input 
         type='text'
         placeholder='Enter Your Comment'
         className='add-comment__input text-input'
         aria-label='Add Comment'
         autoFocus
-        value={comment}
-        onChange={e => setComment(e.target.value)}
+        value={text}
+        onChange={e => setText(e.target.value)}
       />
-      { comment !== '' ? (
+      { text !== '' ? (
         <button
           className='add-comment__btn'
+          onClick={addComment}
         >
           Add Comment
         </button> 
@@ -41,8 +39,4 @@ export const AddComment = (props) => {
   )
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  startAddComment: (comment) => dispatch(startAddComment(comment))
-})
-
-export default connect(null, mapDispatchToProps)(AddComment);
+export default AddComment;

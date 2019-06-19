@@ -15,6 +15,6 @@ it('DeleteComment should render correctly', () => {
 });
 
 it('DeleteComment should handleSubmit correctly', () => {
-  wrapper.find('.confirm_btn').simulate('click');
+  wrapper.find('.delete__confirm_btn').simulate('click');
   expect(handleSubmit).toHaveBeenCalled();
 });

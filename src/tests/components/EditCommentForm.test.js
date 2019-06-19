@@ -22,5 +22,5 @@ it('EditCommentForm should handleSubmit correctly', () => {
   input.simulate('change', {target: {value: newComment}});
 
   wrapper.find('.edit-comment').simulate('submit', {preventDefault: () => null});
-  expect(handleSubmit).toHaveBeenCalledWith({text: newComment})
+  expect(handleSubmit).toHaveBeenCalledWith(newComment)
 });

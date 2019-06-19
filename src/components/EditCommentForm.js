@@ -3,14 +3,14 @@ import Modal from 'react-modal'
 
 const CommentForm = (props) => {
 
-  const [ comment, setComment ] = useState(props.comment);
+  const [ text, setText ] = useState(props.comment);
 
   const origComment = props.comment;
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (comment !== '' && comment !== origComment) {
-      props.handleSubmit({text: comment});
+    if (text !== '' && text !== origComment) {
+      props.handleSubmit(text);
     }
   };
 
@@ -34,10 +34,10 @@ const CommentForm = (props) => {
             type='text'
             className='edit-comment__input text-input'
             autoFocus
-            value={comment}
-            onChange={e => setComment(e.target.value)}
+            value={text}
+            onChange={e => setText(e.target.value)}
           />
-          { (comment !== '' && comment !== props.comment) ? (
+          { (text !== '' && text !== props.comment) ? (
             <button 
               className='edit-comment__btn'
             >
