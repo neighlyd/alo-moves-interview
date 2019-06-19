@@ -9,6 +9,7 @@ function App() {
       <List 
       collection='comments'
       noList='There are no comments yet. You can be the first commenter!'
+      loadingMessage='Loading Comments'
       />
       </main>
     </div>

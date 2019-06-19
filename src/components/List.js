@@ -3,7 +3,6 @@ import firebase from '../firebase/firebase';
 
 import AddComment from './AddComment';
 import CommentItem from './CommentItem';
-import LoadingPage from './LoadingPage';
 
 export class List extends React.Component {
 
@@ -86,9 +85,9 @@ export class List extends React.Component {
         <ul>
           { this.state.loading ? (
             <li>
-              <p className='no-comment'>Loading Comments</p>
+              <p className='no-comment'>{this.props.loadingMessage}</p>
             </li>
-          ) : (
+            ) : (
             this.state.comments.length === 0 ? (
               <li>
                 <p className='no-comment'>{this.props.noList}</p>
@@ -101,8 +100,8 @@ export class List extends React.Component {
                   {...comment}
                   />
               ))
-            )
-          )
+            )   
+            )         
           }
         </ul>     
         <AddComment handleAddComment={this.handleAddComment} />   
